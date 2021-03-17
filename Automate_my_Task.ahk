@@ -25,7 +25,7 @@ global script := {base			: script
 				 ,iconfile		: A_AppData "\" regexreplace(A_ScriptName, "\.\w+") "\res\main.ico"
 				 ,config 		: A_AppData "\" regexreplace(A_ScriptName, "\.\w+") "\settings.ini"}
 
-if !fileExist(script.iconfile)
+if !fileExist(script.resfolder)
 {
 	FileCreateDir, % script.resfolder
 	FileInstall, res\main.ico, % script.iconfile
