@@ -22,10 +22,17 @@ global script := {base			: script
 				 ,homepagelink	: "https://www.the-automator.com/AmT?src=AmT"
 				 ,donateLink	: "https://www.paypal.com/donate?hosted_button_id=MBT5HSD9G94N6"
 				 ,resfolder		: A_AppData "\" regexreplace(A_ScriptName, "\.\w+") "\res"
-				 ,iconfile		: ""
+				 ,iconfile		: A_AppData "\" regexreplace(A_ScriptName, "\.\w+") "\res\main.ico"
 				 ,config 		: A_AppData "\" regexreplace(A_ScriptName, "\.\w+") "\settings.ini"}
 
-Menu, Tray, Icon, C:\Windows\system32\shell32.dll,23 ;Set custom Script icon
+if !fileExist(script.iconfile)
+{
+	FileCreateDir, % script.resfolder
+	FileInstall, res\main.ico, % script.iconfile
+}
+
+;@Ahk2Exe-SetMainIcon res\main.ico
+Menu, Tray, Icon, % script.iconfile
 Menu, Tray, Add
 Menu, Tray, Add, Check for Updates, Update
 Menu, Tray, Add, About, AboutGUI
