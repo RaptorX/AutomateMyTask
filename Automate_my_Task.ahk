@@ -256,11 +256,8 @@ aboutClose:
 return
 
 Update:
-	res := script.update("https://www.the-automator.com/amt/ver"
-						,"https://www.the-automator.com/amt/Automate_my_Task.zip")
-
-	if (res == 5)
-		msgbox % "You are using the latest version."
+	script.update("https://www.the-automator.com/amt/ver"
+				 ,"https://www.the-automator.com/amt/Automate_my_Task.zip")
 return
 
 Class Grabbie{
