@@ -1,4 +1,4 @@
-﻿/*
+/*
 	***** Donate here:  If you like this program, you can Donate here:  https://paypal.me/JoeGlines
 	***** Watch training videos here:  https://the-automator.com/automate-my-task/*******
 	***** Download it here:  https://the-automator.com/download/Automate_my_Task.ahk
@@ -20,6 +20,7 @@ global script := {base			: script
 				 ,email			: "joe@the-automator.com"
 				 ,homepagetext	: "https://www.the-automator.com/AmT"
 				 ,homepagelink	: "https://www.the-automator.com/AmT?src=AmT"
+				 ,donateLink	: "https://www.paypal.com/donate?hosted_button_id=MBT5HSD9G94N6"
 				 ,resfolder		: A_AppData "\" regexreplace(A_ScriptName, "\.\w+") "\res"
 				 ,iconfile		: ""
 				 ,config 		: A_AppData "\" regexreplace(A_ScriptName, "\.\w+") "\settings.ini"}
