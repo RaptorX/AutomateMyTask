@@ -1,4 +1,4 @@
-/*
+﻿/*
 	***** Donate here:  If you like this program, you can Donate here:  https://paypal.me/JoeGlines
 	***** Watch training videos here:  https://the-automator.com/automate-my-task/*******
 	***** Download it here:  https://the-automator.com/download/Automate_my_Task.ahk
@@ -199,8 +199,14 @@ AboutGUI:
 return
 
 Update:
+	try
 		script.update("https://www.the-automator.com/update/amt/ver"
 					 ,"https://www.the-automator.com/update/amt/Automate_my_Task.zip")
+	catch e
+	{
+		if (e.code == 6)
+			msgbox % e.msg
+	}
 return
 
 Class Grabbie{
