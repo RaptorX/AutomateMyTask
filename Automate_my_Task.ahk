@@ -13,6 +13,11 @@
 #SingleInstance,Force
 #Include lib\ScriptObj\scriptobj.ahk
 
+if !InStr(A_OSVersion, "10.")
+	appdata := A_ScriptDir
+else
+	appdata := A_AppData "\" regexreplace(A_ScriptName, "\.\w+"), isWin10 := true
+
 global script := {base			: script
 				 ,name			: regexreplace(A_ScriptName, "\.\w+")
 				 ,version		: "0.1.0"
@@ -21,9 +26,10 @@ global script := {base			: script
 				 ,homepagetext	: "https://www.the-automator.com/AmT"
 				 ,homepagelink	: "https://www.the-automator.com/AmT?src=AmT"
 				 ,donateLink	: "https://www.paypal.com/donate?hosted_button_id=MBT5HSD9G94N6"
-				 ,resfolder		: A_AppData "\" regexreplace(A_ScriptName, "\.\w+") "\res"
-				 ,iconfile		: A_AppData "\" regexreplace(A_ScriptName, "\.\w+") "\res\main.ico"
-				 ,config 		: A_AppData "\" regexreplace(A_ScriptName, "\.\w+") "\settings.ini"}
+				 ,resfolder		: appdata "\res"
+				 ,iconfile		: appdata "\res\main.ico"
+				 ,configfolder	: appdata
+				 ,config		: appdata "\settings.ini"}
 
 if !fileExist(script.resfolder)
 {
