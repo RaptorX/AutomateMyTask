@@ -13,18 +13,32 @@
 #SingleInstance,Force
 #Include lib\ScriptObj\scriptobj.ahk
 
+if !InStr(A_OSVersion, "10.")
+	appdata := A_ScriptDir
+else
+	appdata := A_AppData "\" regexreplace(A_ScriptName, "\.\w+"), isWin10 := true
+
 global script := {base			: script
 				 ,name			: regexreplace(A_ScriptName, "\.\w+")
-				 ,version		: "0.1.0"
+				 ,version		: "0.1.7"
 				 ,author		: "Joe Glines"
 				 ,email			: "joe@the-automator.com"
 				 ,homepagetext	: "https://www.the-automator.com/AmT"
 				 ,homepagelink	: "https://www.the-automator.com/AmT?src=AmT"
-				 ,resfolder		: A_AppData "\" regexreplace(A_ScriptName, "\.\w+") "\res"
-				 ,iconfile		: ""
-				 ,config 		: A_AppData "\" regexreplace(A_ScriptName, "\.\w+") "\settings.ini"}
+				 ,donateLink	: "https://www.paypal.com/donate?hosted_button_id=MBT5HSD9G94N6"
+				 ,resfolder		: appdata "\res"
+				 ,iconfile		: appdata "\res\main.ico"
+				 ,configfolder	: appdata
+				 ,config		: appdata "\settings.ini"}
 
-Menu, Tray, Icon, C:\Windows\system32\shell32.dll,23 ;Set custom Script icon
+if !fileExist(script.resfolder)
+{
+	FileCreateDir, % script.resfolder
+	FileInstall, res\main.ico, % script.iconfile
+}
+
+;@Ahk2Exe-SetMainIcon res\main.ico
+Menu, Tray, Icon, % script.iconfile
 Menu, Tray, Add
 Menu, Tray, Add, Check for Updates, Update
 Menu, Tray, Add, About, AboutGUI
@@ -187,72 +201,18 @@ ExitApp
 return
 
 AboutGUI:
-	ver := script.version
-	name := script.name
-	hp := regexreplace(script.homepagetext, "http(s)?:\/\/")
-	ln := regexreplace(script.homepagelink, "http(s)?:\/\/")
-	html =
-	(
-		<!DOCTYPE html>
-		<html lang="en" dir="ltr">
-			<head>
-				<meta charset="utf-8">
-				<meta http-equiv="X-UA-Compatible" content="IE=edge">
-				<style media="screen">
-					.top {
-						text-align:center;
-					}
-					.top h2 {
-						color:#2274A5;
-					}
-					.donate {
-						color:#E83F6F;
-						text-align:center;
-						font-weight:bold;
-						font-size:small;
-						margin: 20px;
-					}
-					p {
-						margin: 0px;
-					}
-				</style>
-			</head>
-			<body>
-				<div class="top">
-					<h2>%name%</h2>
-					<hr>
-					<p>Script Version: %ver%</p>
-					<p>Joe Glines</p>
-					<p><a href="https://%ln%" target="_blank">%hp%</a></p>
-				</div>
-				<div class="donate">
-					<p>If you like this tool please consider <a href="https://www.paypal.com/donate?hosted_button_id=MBT5HSD9G94N6">donating</a>.</p>
-				</div>
-				<hr>
-			</body>
-		</html>
-	)
-
-	btnPos := 300/2 - 75/2
-	Gui About:New,,% "About " regexreplace(script.name, "\.ahk")
-	Gui Margin, 0
-	Gui Color, White
-	Gui Add, ActiveX, w300 h220 vdoc, htmlfile
-	Gui Add, Button, w75 x%btnPos% gaboutClose, Close
-	doc.write(html)
-	Gui Show
-return
-
-aboutClose:
-	Gui About:Destroy
+	script.about()
 return
 
 Update:
-	res := script.update("https://www.the-automator.com/amt/ver"
-						,"https://www.the-automator.com/amt/Automate_my_Task.zip")
-
-	if (res == 5)
-		msgbox % "You are using the latest version."
+	try
+		script.update("https://www.the-automator.com/update/amt/ver"
+					 ,"https://www.the-automator.com/update/amt/Automate_my_Task.zip")
+	catch e
+	{
+		if (e.code == 6)
+			msgbox % e.msg
+	}
 return
 
 Class Grabbie{
