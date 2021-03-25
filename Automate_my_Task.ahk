@@ -20,7 +20,7 @@ else
 
 global script := {base			: script
 				 ,name			: regexreplace(A_ScriptName, "\.\w+")
-				 ,version		: "0.3.0"
+				 ,version		: "0.3.1"
 				 ,author		: "Joe Glines"
 				 ,email			: "joe@the-automator.com"
 				 ,homepagetext	: "https://www.the-automator.com/AmT"
@@ -38,6 +38,7 @@ if !fileExist(script.resfolder)
 }
 
 ;@Ahk2Exe-SetMainIcon res\main.ico
+Menu, Tray, NoStandard
 Menu, Tray, Icon, % script.iconfile
 Menu, Tray, Add
 Menu, Tray, Add, Check for Updates, Update
