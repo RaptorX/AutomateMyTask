@@ -38,6 +38,7 @@ if !fileExist(script.resfolder)
 }
 
 ;@Ahk2Exe-SetMainIcon res\main.ico
+Menu, Tray, NoStandard
 Menu, Tray, Icon, % script.iconfile
 Menu, Tray, Add
 Menu, Tray, Add, Check for Updates, Update
