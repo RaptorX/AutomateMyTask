@@ -206,8 +206,8 @@ return
 
 Update:
 	try
-		script.update("https://www.the-automator.com/update/amt/ver"
-					 ,"https://www.the-automator.com/update/amt/Automate_my_Task.zip")
+		script.update("https://raw.githubusercontent.com/RaptorX/Automate_my_Task/master/ver"
+					 ,"https://github.com/RaptorX/Automate_my_Task/archive/refs/tags/latest.zip")
 	catch e
 	{
 		if (e.code == 6)
