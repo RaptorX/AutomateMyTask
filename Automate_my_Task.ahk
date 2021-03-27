@@ -20,7 +20,7 @@ else
 
 global script := {base			: script
 				 ,name			: regexreplace(A_ScriptName, "\.\w+")
-				 ,version		: "0.3.1"
+				 ,version		: "0.3.2"
 				 ,author		: "Joe Glines"
 				 ,email			: "joe@the-automator.com"
 				 ,homepagetext	: "https://www.the-automator.com/AmT"
@@ -183,9 +183,9 @@ ListLines,Off
 CoordMode,Mouse,Screen
 CoordMode,ToolTip,Screen
 if()
-	GI:=New Grabbie("11|11","Automate my Task") ;Joe Changed from Grabbie
+	GI:=New Grabbie("11|11","Automate my Task - the-Automator.com") ;Joe Changed from Grabbie
 else
-	GI:=New Grabbie("20|20","Automate my Task") ;Joe Changed from Grabbie
+	GI:=New Grabbie("20|20","Automate my Task - the-Automator.com") ;Joe Changed from Grabbie
 
 GI.AddCode:=Info
 return
