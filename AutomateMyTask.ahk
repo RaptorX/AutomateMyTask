@@ -1,13 +1,12 @@
-﻿/*
+/*
 	***** Donate here:  If you like this program, you can Donate here:  https://paypal.me/JoeGlines
 	***** Watch training videos here:  https://the-automator.com/automate-my-task/*******
-	***** Download it here:  https://the-automator.com/download/Automate_my_Task.ahk
 	Share — copy and redistribute the material in any medium or format
 	Adapt — remix, transform, and build upon the material
 	The licensor cannot revoke these freedoms as long as you follow the license terms.
 	Under the following terms:
 	Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-	NonCommercial — You may use the material for commercial purposes but do NOT take credit for Automate_my_Task.ahk
+	NonCommercial — You may use the material for commercial purposes but do NOT take credit for AutomateMyTask.ahk
 */
 
 #SingleInstance,Force
@@ -183,9 +182,9 @@ ListLines,Off
 CoordMode,Mouse,Screen
 CoordMode,ToolTip,Screen
 if()
-	GI:=New Grabbie("11|11","Automate my Task - the-Automator.com") ;Joe Changed from Grabbie
+	GI:=New Grabbie("11|11","AutomateMyTask - the-Automator.com") ;Joe Changed from Grabbie
 else
-	GI:=New Grabbie("20|20","Automate my Task - the-Automator.com") ;Joe Changed from Grabbie
+	GI:=New Grabbie("20|20","AutomateMyTask - the-Automator.com") ;Joe Changed from Grabbie
 
 GI.AddCode:=Info
 return
@@ -207,8 +206,8 @@ return
 
 Update:
 	try
-		script.update("https://raw.githubusercontent.com/RaptorX/Automate_my_Task/master/ver"
-					 ,"https://github.com/RaptorX/Automate_my_Task/archive/refs/tags/latest.zip")
+		script.update("https://raw.githubusercontent.com/RaptorX/AutomateMyTask/master/ver"
+					 ,"https://github.com/RaptorX/AutomateMyTask/archive/refs/tags/latest.zip")
 	catch e
 	{
 		if (e.code == 6)
