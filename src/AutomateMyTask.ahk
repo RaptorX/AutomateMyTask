@@ -17,18 +17,18 @@ if !InStr(A_OSVersion, "10.")
 else
 	appdata := A_AppData "\" regexreplace(A_ScriptName, "\.\w+"), isWin10 := true
 
-global script := {base         : script
-                 ,name         : regexreplace(A_ScriptName, "\.\w+")
-                 ,version      : "0.3.4"
-                 ,author       : "Joe Glines"
-                 ,email        : "joe@the-automator.com"
-                 ,homepagetext : "https://www.the-automator.com/AmT"
-                 ,homepagelink : "https://www.the-automator.com/AmT?src=AmT"
-                 ,donateLink   : "https://www.paypal.com/donate?hosted_button_id=MBT5HSD9G94N6"
-                 ,resfolder    : appdata "\res"
-                 ,iconfile     : appdata "\res\main.ico"
-                 ,configfolder : appdata
-                 ,config       : appdata "\settings.ini"}
+global script := {base			: script
+				 ,name			: regexreplace(A_ScriptName, "\.\w+")
+				 ,version		: "0.3.4"
+				 ,author		: "Joe Glines"
+				 ,email			: "joe@the-automator.com"
+				 ,homepagetext	: "https://www.the-automator.com/AmT"
+				 ,homepagelink	: "https://www.the-automator.com/AmT?src=AmT"
+				 ,donateLink	: "https://www.paypal.com/donate?hosted_button_id=MBT5HSD9G94N6"
+				 ,resfolder		: appdata "\res"
+				 ,iconfile		: appdata "\res\main.ico"
+				 ,configfolder	: appdata
+				 ,config		: appdata "\settings.ini"}
 
 if !fileExist(script.resfolder)
 {
@@ -43,12 +43,10 @@ Menu, Tray, Add
 Menu, Tray, Add, Check for Updates, Update
 Menu, Tray, Add, About, AboutGUI
 
-If(SubStr(A_AhkVersion,1,3)<1.1)
-{
+If(SubStr(A_AhkVersion,1,3)<1.1){
 	MsgBox Please upgrade to the most recent version of AutoHotkey.`n`nYou're running version: %A_AhkVersion%
 	return
 }
-
 global GuiFontSize:= A_ScreenHeight>2159?5:A_ScreenHeight>1199?8:10 ;Adjusting font sizes for resolution of monitors
 
 /*
