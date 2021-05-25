@@ -1,4 +1,4 @@
-;******************************************************************************
+﻿;******************************************************************************
 ; Want a clear path for learning AutoHotkey?                                  *
 ; Take a look at our AutoHotkey Udemy courses.                                *
 ; They're structured in a way to make learning AHK EASY                       *
@@ -13,18 +13,18 @@ if !InStr(A_OSVersion, "10.")
 else
 	appdata := A_AppData "\" regexreplace(A_ScriptName, "\.\w+"), isWin10 := true
 
-global script := {base			: script
-				 ,name			: regexreplace(A_ScriptName, "\.\w+")
-				 ,version		: "0.3.4"
-				 ,author		: "Joe Glines"
-				 ,email			: "joe@the-automator.com"
-				 ,homepagetext	: "https://www.the-automator.com/AmT"
-				 ,homepagelink	: "https://www.the-automator.com/AmT?src=AmT"
-				 ,donateLink	: "https://www.paypal.com/donate?hosted_button_id=MBT5HSD9G94N6"
-				 ,resfolder		: appdata "\res"
-				 ,iconfile		: appdata "\res\main.ico"
-				 ,configfolder	: appdata
-				 ,config		: appdata "\settings.ini"}
+global script := {base         : script
+                 ,name         : regexreplace(A_ScriptName, "\.\w+")
+                 ,version      : "0.3.4"
+                 ,author       : "Joe Glines"
+                 ,email        : "joe@the-automator.com"
+                 ,homepagetext : "https://www.the-automator.com/AmT"
+                 ,homepagelink : "https://www.the-automator.com/AmT?src=AmT"
+                 ,donateLink   : "https://www.paypal.com/donate?hosted_button_id=MBT5HSD9G94N6"
+                 ,resfolder    : appdata "\res"
+                 ,iconfile     : appdata "\res\main.ico"
+                 ,configfolder : appdata
+                 ,config       : appdata "\settings.ini"}
 
 if !fileExist(script.resfolder)
 {
