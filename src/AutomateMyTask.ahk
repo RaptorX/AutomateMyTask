@@ -1,16 +1,12 @@
-/*
-	***** Donate here:  If you like this program, you can Donate here:  https://paypal.me/JoeGlines
-	***** Watch training videos here:  https://the-automator.com/automate-my-task/*******
-	Share — copy and redistribute the material in any medium or format
-	Adapt — remix, transform, and build upon the material
-	The licensor cannot revoke these freedoms as long as you follow the license terms.
-	Under the following terms:
-	Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-	NonCommercial — You may use the material for commercial purposes but do NOT take credit for AutomateMyTask.ahk
-*/
+;******************************************************************************
+; Want a clear path for learning AutoHotkey?                                  *
+; Take a look at our AutoHotkey Udemy courses.                                *
+; They're structured in a way to make learning AHK EASY                       *
+; Right now you can  get a coupon code here: https://the-Automator.com/Learn  *
+;******************************************************************************
 
 #SingleInstance,Force
-#Include lib\ScriptObj\scriptobj.ahk
+#Include <ScriptObj\scriptobj>
 
 if !InStr(A_OSVersion, "10.")
 	appdata := A_ScriptDir
@@ -43,10 +39,12 @@ Menu, Tray, Add
 Menu, Tray, Add, Check for Updates, Update
 Menu, Tray, Add, About, AboutGUI
 
-If(SubStr(A_AhkVersion,1,3)<1.1){
+If(SubStr(A_AhkVersion,1,3)<1.1)
+{
 	MsgBox Please upgrade to the most recent version of AutoHotkey.`n`nYou're running version: %A_AhkVersion%
 	return
 }
+
 global GuiFontSize:= A_ScreenHeight>2159?5:A_ScreenHeight>1199?8:10 ;Adjusting font sizes for resolution of monitors
 
 /*
