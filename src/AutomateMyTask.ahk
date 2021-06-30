@@ -15,7 +15,7 @@ else
 
 global script := {base         : script
                  ,name         : regexreplace(A_ScriptName, "\.\w+")
-                 ,version      : "0.3.4"
+                 ,version      : "0.6.1"
                  ,author       : "Joe Glines"
                  ,email        : "joe@the-automator.com"
                  ,homepagetext : "https://www.the-automator.com/AmT"
@@ -204,8 +204,8 @@ return
 
 Update:
 	try
-		script.update("https://raw.githubusercontent.com/RaptorX/AutomateMyTask/master/ver"
-					 ,"https://github.com/RaptorX/AutomateMyTask/archive/refs/tags/latest.zip")
+		script.update("https://raw.githubusercontent.com/RaptorX/AutomateMyTask/latest/ver"
+		             ,"https://github.com/RaptorX/AutomateMyTask/archive/refs/tags/latest.zip")
 	catch e
 	{
 		if (e.code == 6)
