@@ -204,8 +204,8 @@ return
 
 Update:
 	try
-		script.update("https://raw.githubusercontent.com/RaptorX/AutomateMyTask/master/ver"
-					 ,"https://github.com/RaptorX/AutomateMyTask/archive/refs/tags/latest.zip")
+		script.update("https://raw.githubusercontent.com/RaptorX/AutomateMyTask/latest/ver"
+		             ,"https://github.com/RaptorX/AutomateMyTask/archive/refs/tags/latest.zip")
 	catch e
 	{
 		if (e.code == 6)
