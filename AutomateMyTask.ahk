@@ -1,13 +1,13 @@
 ﻿;******************************************************************************
 ; Want a clear path for learning AutoHotkey?                                  *
-; Take a look at our AutoHotkey Udemy courses.                                *
+; Take a look at our AutoHotkey courses.                                *
 ; They're structured in a way to make learning AHK EASY                       *
-; Right now you can  get a coupon code here: https://the-Automator.com/Learn  *
+; Discover how easy AutoHotkey is here: https://the-Automator.com/Discover  *
 ;******************************************************************************
 
 #SingleInstance,Force
 #Include <ScriptObj\scriptobj>
-
+DllCall("SetThreadDpiAwarenessContext", "ptr", -3, "ptr") ; Per-Monitor DPI aware
 if !InStr(A_OSVersion, "10.")
 	appdata := A_ScriptDir
 else
@@ -205,7 +205,7 @@ return
 Update:
 	try
 		script.update("https://raw.githubusercontent.com/RaptorX/AutomateMyTask/latest/ver"
-		             ,"https://github.com/RaptorX/AutomateMyTask/archive/refs/tags/latest.zip")
+		             ,"https://github.com/RaptorX/AutomateMyTask/releases/download/latest/AutomateMyTask.zip")
 	catch e
 	{
 		if (e.code == 6)
@@ -243,7 +243,7 @@ Class Grabbie{
 		;~ Gui,+AlwaysOnTop +HWNDMain
 		;~ Gui,Color,0,0
 		;~ Gui,Font,c0xAAAAAA s10
-		Gui,+AlwaysOnTop +HWNDMain -DPIScale ;Changed 6/21
+		Gui,+AlwaysOnTop +HWNDMain ;Changed 6/21
 		Gui,Color,0,0 ;Changed 6/21
 		;~ Gui,Font,c0xAAAAAA s8 ;Changed 6/21
 		Gui,Font,c0xAAAAAA s%GuiFontSize% ;Changed 6/21
